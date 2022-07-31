@@ -1,25 +1,29 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+  Launch demo modal
+</button>
 
-<div class="container-fluid py-3">
-  <div class="row my-3">
-    <div class="col">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-  </div>
-  <div class="row my-3">
-    <div class="col">
-      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-      <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-  </div>
-  <div class="row my-3">
-    <div class="col">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ... <!-- <ng-content></ng-content> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>
+<div>
   <div class="row my-3">
     <div class="col">
       <button class="btn btn-sm btn-primary" (click)="open(demoModal)">Launch demo modal</button>
@@ -27,7 +31,8 @@
   </div>
 </div>
 
-<ng-template #demoModal let-modal>
+<ng-template #demoModal let-modal >
+  <ng-container id="test">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
@@ -46,4 +51,5 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
+  </ng-container>
 </ng-template>
