@@ -9,3 +9,7 @@ This project is being developed using Test Driven Development. You can run all u
 ## Back End
 
 At the moment this website has no need for a back end and currently does not have one, however as a TODO item I am looking for a reason to have one so I can make this website a little more fancy
+
+## Deployment
+
+Currently just using github pages (having a few errors with that at the moment) but is viewable here https://thaggy.github.io/MyWebsite/
