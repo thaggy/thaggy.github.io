@@ -2,3 +2,9 @@
   background: #303038 !important;
   border: 1.5px solid grey;
 }
+
+.modal-footer {
+  background: #303038 !important;
+  border: none;
+}
+
