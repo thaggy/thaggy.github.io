@@ -1,0 +1,10 @@
+<div class="card" (click)="handleClick()">
+  <div class="card-header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <ng-container *ngIf="isMinimized">
+    <div class="card-body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+  </ng-container>
+</div>
