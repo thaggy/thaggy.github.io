@@ -12,4 +12,4 @@ At the moment this website has no need for a back end and currently does not hav
 
 ## Deployment
 
-Currently just using github pages (having a few errors with that at the moment) but is viewable here https://thaggy.github.io/MyWebsite/
+Currently just using github pages (with some difficulty) URL : https://thaggy.github.io/
