@@ -1,0 +1,13 @@
+.card-img-top {
+  background-color: #585858;
+  max-width: 300px;
+  max-height: 210px;
+  object-fit: cover;
+}
+
+.card-body {
+  background-color: #2c3034;
+}
+.card {
+  border: 1px solid #5e5e5e;
+}

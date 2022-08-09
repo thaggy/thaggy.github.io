@@ -1,9 +1,9 @@
-<div class="card" (click)="handleClick()">
-  <div class="card-header">
+<div class="card">
+  <div class="card-header"  (click)="handleClick()">
     <ng-content select="[header]"></ng-content>
   </div>
-  <ng-container *ngIf="isMinimized">
-    <div class="card-body">
+  <ng-container *ngIf="!isMinimized">
+    <div id="body-element" class="card-body">
       <ng-content select="[body]"></ng-content>
     </div>
   </ng-container>

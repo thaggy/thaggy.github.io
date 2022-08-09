@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AccordionPanelComponent implements OnInit {
   // This is an input field so that if you want to set isMinimized to any specific value to start
   @Input() public isMinimized = false;
+  public id = "work";
 
   constructor() {
   }

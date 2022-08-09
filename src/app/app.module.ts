@@ -13,6 +13,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {ModalBodyComponent} from "./modal-body/modal-body.component";
 import {ModalButtonComponent} from "./modal-button/modal-button.component";
 import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
+import { ImageCardComponent } from './image-card/image-card.component';
 
 const routes: Routes =
   [{path: 'resume', component: ResumeComponent},
@@ -32,7 +33,8 @@ const routes: Routes =
     AboutComponent,
     ModalBodyComponent,
     ModalButtonComponent,
-    AccordionPanelComponent
+    AccordionPanelComponent,
+    ImageCardComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),

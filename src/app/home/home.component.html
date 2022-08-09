@@ -1,28 +1,58 @@
-<div class="col-md-6">
-  <app-accordion-panel [isMinimized]="true">
-    <ng-container header>
-      Accordion Header
-    </ng-container>
-    <ng-container body>
-      Accordion Body
-    </ng-container>
-  </app-accordion-panel>
-  <app-modal-button modalId="testModal" buttonText="Open Test Modal"></app-modal-button>
-  <app-modal-body modalId="testModal">
-    <ng-container header>
-      <h5 class="modal-title">
-        Test Modal
-      </h5>
-    </ng-container>
-    <ng-container body>
-      <div>
+<div class="container top-bottom-padding">
+  <div>
+    <h1 class="text-align-center">
+      Welcome
+    </h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="small-image" src="../../assets/img/me.JPG">
+      </div>
+      <div class="col-md-10 top-bottom-padding">
         <p>
-          Hello World!
+          I am Tom Hagedorn, I am currently a senior at the University of Missouri - Columbia, also known as
+           Mizzou. Feel free to explore my website! You can look at things like my Resume and my about page by clicking on my name in the top navbar!
+          I also plan on including some web apps like Wordle when I get the time to recreate them here.
         </p>
       </div>
-    </ng-container>
-    <ng-container footer>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    </ng-container>
-  </app-modal-body>
+    </div>
+  </div>
+</div>
+<div class="container top-bottom-padding">
+  <div class="row">
+    <h4 class="text-align-center">
+      Connections
+    </h4>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col">
+      <a href="https://www.linkedin.com/in/tom-hagedorn">
+        <app-image-card imgSource="https://i.imgur.com/OQUXwNp.jpeg"
+                        cardTitle="LinkedIn"
+                        cardBody="Want to connect on LinkedIn? Me too!
+                      Here is my linkedin page where you further check out my portfolio!">
+        </app-image-card>
+      </a>
+    </div>
+    <div class="col">
+      <a href="https://steamcommunity.com/id/WorldsOkayest">
+        <app-image-card imgSource="https://i.imgur.com/lN9wLrE.jpeg"
+                        cardTitle="Steam"
+                        cardBody="Want to see my steam for some reason? No problem-o!
+                       I have linked that too for some reason">
+        </app-image-card>
+      </a>
+    </div>
+    <div class="col">
+      <a href="http://github.com/thaggy">
+        <app-image-card imgSource="https://i.imgur.com/J6LeoUb.png"
+                        cardTitle="GitHub"
+                        cardBody="Want to see my projects?
+                      Check out my GitHub where you things like my Smash Bros. AI or even this website!">
+        </app-image-card>
+      </a>
+    </div>
+  </div>
 </div>
