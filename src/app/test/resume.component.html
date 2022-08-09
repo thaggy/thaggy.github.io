@@ -1,33 +1,173 @@
 <div class="top-bottom-padding container">
-  <h3 class="text-align-center">
+  <h3 class="text-align-center top-padding">
     Education
   </h3>
   <hr>
-  <h3 class="text-align-center">
+  <app-accordion-panel>
+    <ng-container header>
+      <h3>University of Missouri Columbia</h3>
+    </ng-container>
+    <ng-container body>
+      <p>Graduation Date: May 2023</p>
+      <p>Major: Computer Science</p>
+      <p>Minors & Certificates: Math Minor and a Web and App Design Cert</p>
+      <p>GPA: 3.5</p>
+      <app-modal-button modalId="clubsModal" buttonText="Click Here for List of Clubs"></app-modal-button>
+      <app-modal-body modalId="clubsModal">
+        <ng-container header>
+          <h5 class="modal-title">
+            List of Clubs
+          </h5>
+        </ng-container>
+        <ng-container body>
+          <div>
+            <ul>
+              <li>
+                Marching Mizzou
+              </li>
+              <li>
+                Mizzou VR
+              </li>
+              <li>
+                Mizzou Smash Bros.
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-container footer>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </ng-container>
+      </app-modal-body>
+    </ng-container>
+  </app-accordion-panel>
+  <h3 class="text-align-center top-padding">
     Experience
   </h3>
   <hr>
-  <h3 class="text-align-center">
+  <app-accordion-panel class="top-padding">
+    <ng-container header>
+      <h3>Principal Financial Group</h3>
+      <div class="row">
+        <div class="col">
+          <h5>Software Engineer</h5>
+        </div>
+        <div class="col">
+          <h5 style="float: right">May-2023 to Present</h5>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container body>
+      <p>
+        Worked as a software engineering intern for Principal Financial Group. As a software engineer for Principal, I
+        did full stack test driven web development. I created websites using React and Angular on the front end, and created endpoints
+        on the backend using Java and SQL.
+      </p>
+    </ng-container>
+  </app-accordion-panel>
+  <h3 class="text-align-center top-padding">
     Projects
   </h3>
   <hr>
-  <app-modal-button modalId="testModal" buttonText="Open Test Modal"></app-modal-button>
-  <app-modal-body modalId="testModal">
+  <app-accordion-panel>
     <ng-container header>
-      <h5 class="modal-title">
-        Test Modal
-      </h5>
-    </ng-container>
-    <ng-container body>
-      <div>
-        <p>
-          Hello World!
-        </p>
+      <div class="row">
+        <div class="col">
+          <h3>This Website</h3>
+        </div>
+        <div class="col">
+          <h3 style="float: right">Angular</h3>
+        </div>
       </div>
     </ng-container>
-    <ng-container footer>
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <ng-container body>
+      <p>
+        This very website that we are on is one of my personal projects! I created this site using Angular as the front end. This website does not
+        have a back end but there really isn't a point to one because the main purpose of this website is to show off my resume and my competency as
+         a computer scientist. I plan on deploying some web apps in the future and those might get complicated enough to require a back-end. The first
+        web app I plan on deploying though is a wordle clone that will not be daily. Mainly so I can play more wordle on my phone. A major TODO item for
+        this website is to increase the complexity more and more so that I can really showcase my full skill set as a web dev
+      </p>
+      <p>The code for the website can be viewed <a href="https://github.com/thaggy/thaggy.github.io">here</a> </p>
     </ng-container>
-  </app-modal-body>
+  </app-accordion-panel>
+  <div  class="top-padding">
+    <app-accordion-panel>
+      <ng-container header>
+        <div class="row">
+          <div class="col">
+            <h3>Smash Bros. AI</h3>
+          </div>
+          <div class="col">
+            <h3 style="float: right">Python</h3>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container body>
+        <p>
+          Smash Bros. A.I. that can react frame perfectly
+        </p>
+        <p>
+          The Smash Bros. A.I. that I created uses a library called LibMelee developed by altf4 and a custom cheat code to insert
+          code into the Dolphin Emulator so that I can hook up my python code into the game. I decided to create a basic bot that essentially
+          is a state machine that can play a full game of melee. The bot's main way to combo a game is to down throw and tech chase and since
+          the bot has perfect reaction time, there is no error in his combo. One of my main goals of the project though, is to create a really good
+          shell for other developers to reference and use to create their own bots. Inspiring others is its own reward in itself.
+        </p>
+        <p>The code for the SmashBot can be viewed <a href="https://github.com/thaggy/Libmelee-SSBM-AI">here</a> </p>
+      </ng-container>
+    </app-accordion-panel>
+  </div>
+  <div  class="top-padding">
+    <app-accordion-panel>
+      <ng-container header>
+        <div class="row">
+          <div class="col">
+            <h3>Connected Components with DFS</h3>
+          </div>
+          <div class="col">
+            <h3 style="float: right">C</h3>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container body>
+        <p>
+          Finding Connected Components in a graph using DFS
+        </p>
+        <p>
+          This program is used to find all connected components within a graph in O(V+E) time. I developed this for a school project with
+          my current roommate Greyson Spencer. This code was written in Base C and as such uses a lot of pointer arithmetic to get the custom
+          Node Struct to work. There is also a lot of code complexity needed here as the code will print out the SSCs in order in constant time
+          which is possible due to how DFS resolves nodes and colors them black
+        </p>
+        <p>The code for the Graph Theory Nonsense can be viewed <a href="https://github.com/thaggy/SCC-DFS">here</a> </p>
+      </ng-container>
+    </app-accordion-panel>
+  </div>
+  <div  class="top-padding">
+    <app-accordion-panel>
+      <ng-container header>
+        <div class="row">
+          <div class="col">
+            <h3>Wordle Clone</h3>
+          </div>
+          <div class="col">
+            <h3 style="float: right">C#/.NET</h3>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container body>
+        <p>
+          Basic Run of the Mill Wordle Clone
+        </p>
+        <p>
+          I created a basic Wordle clone using C# and .NET development. The main goal of this project was that I really like wordle and
+          I wanted to play it more but I ran into an issue of only being able to play it once a day so I created my own app to play it more.
+          There was also a wonder if I could ever create an AI to play wordle or if I could create my own twist on the wordle game mode. One of
+          these may happen in the future so be on the look out as I may put it on this very website!
+        </p>
+        <p>The code for the Wordle Clone can be viewed <a href="https://github.com/thaggy/Wordle-Clone">here</a> </p>
+      </ng-container>
+    </app-accordion-panel>
+  </div>
 </div>
 
