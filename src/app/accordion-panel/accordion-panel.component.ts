@@ -7,17 +7,17 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AccordionPanelComponent implements OnInit {
   // This is an input field so that if you want to set isMinimized to any specific value to start
-  @Input() public isMinimized = false;
-  public id = "work";
+  @Input() public startsMinimized = false;
+  @Input() public panelId = "basicId";
+  public panelClass: string = "collapse show";
 
   constructor() {
   }
 
-  public handleClick() {
-    this.isMinimized = !this.isMinimized;
-  }
-
   ngOnInit(): void {
+    if (this.startsMinimized) {
+      this.panelClass = "collapse";
+    }
   }
 
 }

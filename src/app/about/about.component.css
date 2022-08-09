@@ -1,0 +1,25 @@
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+/* Fun Parallax effect that i dont really have a use for, but i want to implement to make it more fancy*/
+.parallax {
+  min-height: 550px;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: .6;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-heading {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 550px;
+}
+.paragraph-text {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

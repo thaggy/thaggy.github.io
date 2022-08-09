@@ -1,10 +1,10 @@
 <div class="card">
-  <div class="card-header"  (click)="handleClick()">
+  <div class="card-header" data-bs-toggle="collapse" [attr.href]="'#' + panelId">
     <ng-content select="[header]"></ng-content>
   </div>
-  <ng-container *ngIf="!isMinimized">
+  <div [class]="panelClass" [id]="panelId">
     <div id="body-element" class="card-body">
       <ng-content select="[body]"></ng-content>
     </div>
-  </ng-container>
+  </div>
 </div>
