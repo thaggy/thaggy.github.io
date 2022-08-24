@@ -1,0 +1,52 @@
+<app-modal-button modalId="infoModal" buttonText="Info about this web app" style="float: right; padding: 15px"></app-modal-button>
+<div class="row">
+  <h2 style="text-align: center; padding-top: 15px">Choose your own date!</h2>
+</div>
+<app-modal-body modalId="infoModal">
+  <ng-container header>
+    <h5 class="modal-title">
+      Info about this Web App
+    </h5>
+  </ng-container>
+  <ng-container body>
+    <div>
+      <p>This modal is a 'choose your own date' picker. I created this because me and my girlfriend are indecisive</p>
+    </div>
+  </ng-container>
+  <ng-container footer>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  </ng-container>
+</app-modal-body>
+<div class="container">
+  <ng-container *ngIf="!showCompletion && !isDateFinished">
+    <div style="padding-top: 20px">
+      <h3 style="text-align: center">
+        {{currentOption.header}}
+      </h3>
+    </div>
+    <div class="row justify-content-md-center" style="padding-top: 15px">
+      <div class="col-md-auto">
+        <button class="choice-button" style="background-color: red" (click)="handleOptionOneClick()">{{currentOption.optionOne}}</button>
+      </div>
+      <div class="col-md-auto">
+        <button class="choice-button" style="background-color: blue" (click)="handleOptionTwoClick()">{{currentOption.optionTwo}}</button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isDateFinished && !showCompletion">
+    <div style="padding-top: 20px">
+      <h3 style="text-align: center">
+        You just finished the date!
+      </h3>
+    </div>
+    <p style="text-align: center">
+      You can start over by refreshing the page
+    </p>
+  </ng-container>
+  <ng-container *ngIf="showCompletion">
+    <div class="row justify-content-md-center">
+      <button class="choice-button" style="background-color: green" (click)="handleCompletedClick()">Completed</button>
+    </div>
+  </ng-container>
+</div>
+
