@@ -14,13 +14,15 @@ import {ModalBodyComponent} from "./modal-body/modal-body.component";
 import {ModalButtonComponent} from "./modal-button/modal-button.component";
 import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
 import { ImageCardComponent } from './image-card/image-card.component';
+import { ChooseyourdateComponent } from './chooseyourdate/chooseyourdate.component';
 
 const routes: Routes =
   [{path: 'resume', component: ResumeComponent},
-  {path: '', component: HomeComponent},
+    {path: '', component: HomeComponent},
     {path: 'about',component: AboutComponent},
-  {path: '**', component: NotFoundComponent}
-    ];
+    {path: 'date', component: ChooseyourdateComponent},
+    {path: '**', component: NotFoundComponent} // this has to be last
+  ];
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ const routes: Routes =
     ModalBodyComponent,
     ModalButtonComponent,
     AccordionPanelComponent,
-    ImageCardComponent
+    ImageCardComponent,
+    ChooseyourdateComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),
