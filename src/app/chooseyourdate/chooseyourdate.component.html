@@ -19,7 +19,7 @@
 </app-modal-body>
 <div class="container">
   <ng-container *ngIf="!showCompletion && !isDateFinished">
-    <div style="padding-top: 20px">
+    <div style="padding-top: 20px" id="optionDiv">
       <h3 style="text-align: center">
         {{currentOption.header}}
       </h3>
@@ -34,8 +34,8 @@
     </div>
   </ng-container>
   <ng-container *ngIf="isDateFinished && !showCompletion">
-    <div style="padding-top: 20px">
-      <h3 style="text-align: center">
+    <div style="padding-top: 20px" >
+      <h3 style="text-align: center" id="finishText">
         You just finished the date!
       </h3>
     </div>
@@ -45,7 +45,7 @@
   </ng-container>
   <ng-container *ngIf="showCompletion">
     <div class="row justify-content-md-center">
-      <button class="choice-button" style="background-color: green" (click)="handleCompletedClick()">Completed</button>
+      <button id="completionButton" class="choice-button" style="background-color: green" (click)="handleCompletedClick()">Completed</button>
     </div>
   </ng-container>
 </div>
