@@ -4,11 +4,17 @@
   }
 }
 /* Fun Parallax effect that i dont really have a use for, but i want to implement to make it more fancy*/
+body, html {
+  height: 100%;
+}
+
 .parallax {
-  min-height: 550px;
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
-  opacity: .6;
   background-repeat: no-repeat;
   background-size: cover;
 }
