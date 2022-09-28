@@ -1,8 +1,9 @@
 .small-image {
-  max-height: 250px;
-  max-width: 150px;
+  height: 150px;
+  width: 150px;
   object-fit: cover;
   border: 1.5px solid grey;
+  border-radius: 50%;
 }
 
 a, a:hover, a:visited, a:active {
@@ -11,10 +12,37 @@ a, a:hover, a:visited, a:active {
 }
 
 .top-bottom-padding {
-  padding-top: 10px;
+  padding-top: 25px;
   padding-bottom: 10px;
 }
 
 .text-align-center {
   text-align: center;
+}
+
+.parallax {
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-device-width: 1024px) {
+  .parallax {
+    background-attachment: scroll;
+    background-size: 100% 100%;
+  }
+}
+.parallax-heading {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 550px;
+}
+.paragraph-text {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
