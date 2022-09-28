@@ -8,6 +8,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class HomeComponent implements OnInit {
 
+  public emailString = "mailto:haget19@live.com";
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {

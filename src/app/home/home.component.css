@@ -22,7 +22,7 @@ a, a:hover, a:visited, a:active {
 
 .parallax {
   /* Full height */
-  height: 100%;
+  height: 550px;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -38,8 +38,8 @@ a, a:hover, a:visited, a:active {
 }
 .parallax-heading {
   text-align: center;
+  padding-top: 150px;
   vertical-align: middle;
-  line-height: 550px;
 }
 .paragraph-text {
   text-align: center;
