@@ -15,12 +15,14 @@ import {ModalButtonComponent} from "./modal-button/modal-button.component";
 import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
 import { ImageCardComponent } from './image-card/image-card.component';
 import { ChooseyourdateComponent } from './chooseyourdate/chooseyourdate.component';
+import { LearnHiraganaComponent } from './learn-hiragana/learn-hiragana.component';
 
 const routes: Routes =
   [{path: 'resume', component: ResumeComponent},
     {path: '', component: HomeComponent},
     {path: 'about',component: AboutComponent},
     {path: 'date', component: ChooseyourdateComponent},
+    {path: 'Hiragana', component: LearnHiraganaComponent},
     {path: '**', component: NotFoundComponent} // this has to be last
   ];
 
@@ -37,7 +39,8 @@ const routes: Routes =
     ModalButtonComponent,
     AccordionPanelComponent,
     ImageCardComponent,
-    ChooseyourdateComponent
+    ChooseyourdateComponent,
+    LearnHiraganaComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),

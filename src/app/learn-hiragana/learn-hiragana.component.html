@@ -1,0 +1,51 @@
+<div class="alert alert-warning" role="alert">
+  This page is a WIP
+</div>
+<div>
+  <div *ngIf="isMultiChoiceGame">
+    <div class="h-100 d-flex align-items-center justify-content-center" style="padding: 15px">
+      <div>
+        CHOICE
+      </div>
+    </div>
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="row">
+        <div class="col-md-6" style="padding: 5px">
+          <button type="button" class="btn btn-outline-light">1</button>
+        </div>
+        <div class="col-md-6" style="padding: 5px">
+          <button type="button" class="btn btn-outline-light">2</button>
+        </div>
+      </div>
+    </div>
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="row">
+        <div class="col-md-6" style="padding: 5px">
+          <button type="button" class="btn btn-outline-light">3</button>
+        </div>
+        <div class="col-md-6" style="padding: 5px">
+          <button type="button" class="btn btn-outline-light">4</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding: 20px" *ngIf="!isMultiChoiceGame">
+    <div class="row justify-content-md-center">
+      <div class="col col-sm-1">
+        <p>CHOICE</p>
+      </div>
+      <div row justify-content-md-center></div>
+    <ng-template ngFor let-item [ngForOf]="hiragana" let-i="index">
+      <ng-container *ngIf="i%8==0 && i !=0">
+        <div row justify-content-md-center>
+          <div class="col col-sm-1">
+          </div>
+        </div>
+      </ng-container>
+      <div class="col col col-sm-1" style="padding: 5px">
+        <button type="button" class="btn btn-outline-light">{{item.japanese}}</button>
+      </div>
+    </ng-template>
+    </div>
+  </div>
+</div>
