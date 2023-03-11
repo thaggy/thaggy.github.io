@@ -16,6 +16,11 @@ import { AccordionPanelComponent } from './accordion-panel/accordion-panel.compo
 import { ImageCardComponent } from './image-card/image-card.component';
 import { ChooseyourdateComponent } from './chooseyourdate/chooseyourdate.component';
 import { LearnHiraganaComponent } from './learn-hiragana/learn-hiragana.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 const routes: Routes =
   [{path: 'resume', component: ResumeComponent},
@@ -40,11 +45,11 @@ const routes: Routes =
     AccordionPanelComponent,
     ImageCardComponent,
     ChooseyourdateComponent,
-    LearnHiraganaComponent
+    LearnHiraganaComponent,
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule, MatProgressBarModule, MatInputModule, FormsModule, BrowserAnimationsModule, MatSlideToggleModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

@@ -1,51 +1,101 @@
-<div class="alert alert-warning" role="alert">
-  This page is a WIP
+<div *ngIf="!isInGame">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2">
+      <h3>Hiragana</h3>
+    </div>
+  </div>
+  <ng-container>
+    <ng-template ngFor let-item [ngForOf]="hiraganaSections">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+          <mat-slide-toggle [(ngModel)]="item.isEnabled" name="{{item.Family}}-checkbox"> </mat-slide-toggle> {{item.Family}}
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2">
+      <button class="btn btn-outline-light" (click)="toggleAll()">{{enableButtonText}}</button>
+      <button style="margin-left: 10px" class="btn btn-outline-light" (click)="startGame()">Start Game</button>
+    </div>
+  </div>
+
 </div>
-<div>
+<div *ngIf="isInGame">
   <div *ngIf="isMultiChoiceGame">
     <div class="h-100 d-flex align-items-center justify-content-center" style="padding: 15px">
       <div>
-        CHOICE
+        <p class="largeFont">{{displayGameText}}</p>
       </div>
     </div>
-    <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="row">
-        <div class="col-md-6" style="padding: 5px">
-          <button type="button" class="btn btn-outline-light">1</button>
-        </div>
-        <div class="col-md-6" style="padding: 5px">
-          <button type="button" class="btn btn-outline-light">2</button>
+    <div class="buttonBox">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+          <div class="col-md-6" style="padding: 5px">
+            <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[0])">
+              {{multipleChoices[0]}}
+            </button>
+          </div>
+          <div class="col-md-6" style="padding: 5px">
+            <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[1])">
+              {{multipleChoices[1]}}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="row">
-        <div class="col-md-6" style="padding: 5px">
-          <button type="button" class="btn btn-outline-light">3</button>
-        </div>
-        <div class="col-md-6" style="padding: 5px">
-          <button type="button" class="btn btn-outline-light">4</button>
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+          <div class="col-md-6" style="padding: 5px">
+            <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[2])">
+              {{multipleChoices[2]}}
+            </button>
+          </div>
+          <div class="col-md-6" style="padding: 5px">
+            <button type="button" class="btn btn-outline-light largeFont buttonChoice"(click)="chooseAnswer(multipleChoices[3])">
+              {{multipleChoices[3]}}
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="container" style="padding: 20px" *ngIf="!isMultiChoiceGame">
-    <div class="row justify-content-md-center">
-      <div class="col col-sm-1">
-        <p>CHOICE</p>
+    <div>
+      <div class="h-100 d-flex align-items-center justify-content-center" style="padding: 15px">
+        <p class="largeFont">{{displayGameText}}</p>
       </div>
-      <div row justify-content-md-center></div>
-    <ng-template ngFor let-item [ngForOf]="hiragana" let-i="index">
-      <ng-container *ngIf="i%8==0 && i !=0">
-        <div row justify-content-md-center>
-          <div class="col col-sm-1">
-          </div>
-        </div>
-      </ng-container>
-      <div class="col col col-sm-1" style="padding: 5px">
-        <button type="button" class="btn btn-outline-light">{{item.japanese}}</button>
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <form>
+          <mat-form-field appearance="legacy">
+            <mat-label style="color: rgba(255,255,255,.66)">Input Answer</mat-label>
+            <input matInput type="text" [(ngModel)]="Input" name="Input">
+          </mat-form-field>
+          <button style="margin-left: 10px" type="submit" (click)="checkAnswer()" (keydown.enter)="checkAnswer()" class="btn btn-outline-light" mat-raised-button>Submit</button>
+        </form>
       </div>
-    </ng-template>
     </div>
   </div>
+  <br>
+  <div class="container">
+    <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+  </div>
+
 </div>
+<!-- Guess game with all characters -->
+<!--    <div class="row justify-content-md-center">-->
+<!--      <div class="col col-sm-1">-->
+<!--        <p>CHOICE</p>-->
+<!--      </div>-->
+<!--      <div row justify-content-md-center></div>-->
+<!--    <ng-template ngFor let-item [ngForOf]="hiragana" let-i="index">-->
+<!--      <ng-container *ngIf="i%8==0 && i !=0">-->
+<!--        <div row justify-content-md-center>-->
+<!--          <div class="col col-sm-1">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </ng-container>-->
+<!--      <div class="col col col-sm-1" style="padding: 5px">-->
+<!--        <button type="button" class="btn btn-outline-light japanFont">{{item.japanese}}</button>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--    </div>-->
