@@ -3,10 +3,10 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @Component({
   selector: 'app-learn-hiragana',
-  templateUrl: './learn-hiragana.component.html',
-  styleUrls: ['./learn-hiragana.component.css']
+  templateUrl: './learn-japanese.component.html',
+  styleUrls: ['./learn-japanese.component.css']
 })
-export class LearnHiraganaComponent implements OnInit {
+export class LearnJapaneseComponent implements OnInit {
   @NgModule({
     imports: [MatProgressBarModule]
   })
@@ -100,7 +100,97 @@ export class LearnHiraganaComponent implements OnInit {
     {japanese:"ぺ", english: "pe"},
     {japanese:"ぽ", english: "po"},
   ]
-  public hiraganaSections = [
+  public katakana = [
+    // Vowels
+    {japanese:"ア", english: "a"},
+    {japanese:"イ", english: "i"},
+    {japanese:"ウ", english: "u"},
+    {japanese:"エ", english: "e"},
+    {japanese:"オ", english: "o"},
+    // K Family
+    {japanese:"カ", english: "ka"},
+    {japanese:"キ", english: "ki"},
+    {japanese:"ク", english: "ku"},
+    {japanese:"ケ", english: "ke"},
+    {japanese:"コ", english: "ko"},
+    // S Family
+    {japanese:"サ", english: "sa"},
+    {japanese:"シ", english: "shi"},
+    {japanese:"ス", english: "su"},
+    {japanese:"セ", english: "se"},
+    {japanese:"ソ", english: "so"},
+    // T Family
+    {japanese:"タ", english: "ta"},
+    {japanese:"チ", english: "chi"},
+    {japanese:"ツ", english: "tsu"},
+    {japanese:"テ", english: "te"},
+    {japanese:"ト", english: "to"},
+    // N Family
+    {japanese:"ナ", english: "na"},
+    {japanese:"ニ", english: "ni"},
+    {japanese:"ヌ", english: "nu"},
+    {japanese:"ネ", english: "ne"},
+    {japanese:"ノ", english: "no"},
+    // H Family
+    {japanese:"ハ", english: "ha"},
+    {japanese:"ヒ", english: "hi"},
+    {japanese:"フ", english: "fu"},
+    {japanese:"ヘ", english: "he"},
+    {japanese:"ホ", english: "ho"},
+    // M Family
+    {japanese:"マ", english: "ma"},
+    {japanese:"ミ", english: "mi"},
+    {japanese:"ム", english: "mu"},
+    {japanese:"メ", english: "me"},
+    {japanese:"モ", english: "mo"},
+    // Y Family
+    {japanese:"ヤ", english: "ya"},
+    {japanese:"ユ", english: "yu"},
+    {japanese:"ヨ", english: "yo"},
+    // R Family
+    {japanese: "ラ", english: "ra"},
+    {japanese:"リ", english: "ri"},
+    {japanese:"ル", english: "ru"},
+    {japanese:"レ", english: "re"},
+    {japanese:"ロ", english: "ro"},
+    // W Family
+    {japanese:"ワ", english: "wa"},
+    {japanese:"ヲ", english: "wo"},
+    // N
+    {japanese:"ン", english: "n"},
+    // With dots
+    // G Family
+    {japanese:"ガ", english: "ga"},
+    {japanese:"ギ", english: "gi"},
+    {japanese:"グ", english: "gu"},
+    {japanese:"ゲ", english: "ge"},
+    {japanese:"ゴ", english: "go"},
+    // Z Family
+    {japanese:"ザ", english: "za"},
+    {japanese:"ジ", english: "ji"},
+    {japanese:"ズ", english: "zu"},
+    {japanese:"ゼ", english: "ze"},
+    {japanese:"ゾ", english: "zo"},
+    // D Family
+    {japanese:"ダ", english: "da"},
+    {japanese:"ヂ", english: "ji"},
+    {japanese:"ヅ", english: "zu"},
+    {japanese:"デ", english: "de"},
+    {japanese:"ド", english: "do"},
+    // B Family
+    {japanese:"バ", english: "ba"},
+    {japanese:"ビ", english: "bi"},
+    {japanese:"ブ", english: "bu"},
+    {japanese:"ベ", english: "be"},
+    {japanese:"ボ", english: "bo"},
+    // P Family
+    {japanese:"パ", english: "pa"},
+    {japanese:"ピ", english: "pi"},
+    {japanese:"プ", english: "pu"},
+    {japanese:"ペ", english: "pe"},
+    {japanese:"ポ", english: "po"},
+  ]
+  public characterRows = [
     {Family: "A Row", Start: 0, End: 4, isEnabled: false},
     {Family: "Ka Row", Start: 5, End: 9, isEnabled: false},
     {Family: "Sa Row", Start: 10, End: 14, isEnabled: false},
@@ -120,7 +210,7 @@ export class LearnHiraganaComponent implements OnInit {
   ]
   public gameSelection: number = 0;
   public gameSelections: number[] = [-1,-1,-1];
-  public selectedHiragana = [];
+  public selectedRows = [];
   public progress: number = 0;
   public isMultiChoiceGame: boolean = false;
   public multipleChoices: string[] = ["1","2","3","4"];
@@ -128,29 +218,24 @@ export class LearnHiraganaComponent implements OnInit {
   public isInGame: Boolean = false;
   public Input: String = "";
   public multiGuessMode: boolean  = false;
+  public isHiraganaMode: boolean = true;
   constructor() {
 
   }
-  public get enableButtonText(): string {
-    let hasDisabled = false;
-    this.hiraganaSections.forEach((section)=> {
-      if (!section.isEnabled) {
-        hasDisabled = true;
-      }
-    })
-    if (hasDisabled) {
-      return "Enable All";
+  public get headerText(): string {
+    if (this.isHiraganaMode) {
+      return "Hiragana"
     }
-    return "Disable All"
+    return "Katakana";
   }
   public get displayGameText(): string {
     if (this.usingJapaneseText) {
       if (!this.isMultiChoiceGame && this.multiGuessMode) {
-        return this.selectedHiragana[this.gameSelections[0]].japanese + this.selectedHiragana[this.gameSelections[1]].japanese + this.selectedHiragana[this.gameSelections[2]].japanese
+        return this.selectedRows[this.gameSelections[0]].japanese + this.selectedRows[this.gameSelections[1]].japanese + this.selectedRows[this.gameSelections[2]].japanese
       }
-      return this.selectedHiragana[this.gameSelection].japanese;
+      return this.selectedRows[this.gameSelection].japanese;
     }
-    return this.selectedHiragana[this.gameSelection].english
+    return this.selectedRows[this.gameSelection].english
   }
 
   public getNewChoice(maxValue: number): number {
@@ -189,33 +274,45 @@ export class LearnHiraganaComponent implements OnInit {
       arr[answerSlot] = answer;
     }
     if (!this.usingJapaneseText) {
-      choices[0] = this.selectedHiragana[arr[0]].japanese;
-      choices[1] = this.selectedHiragana[arr[1]].japanese;
-      choices[2] = this.selectedHiragana[arr[2]].japanese;
-      choices[3] = this.selectedHiragana[arr[3]].japanese;
+      choices[0] = this.selectedRows[arr[0]].japanese;
+      choices[1] = this.selectedRows[arr[1]].japanese;
+      choices[2] = this.selectedRows[arr[2]].japanese;
+      choices[3] = this.selectedRows[arr[3]].japanese;
     } else {
-      choices[0] = this.selectedHiragana[arr[0]].english;
-      choices[1] = this.selectedHiragana[arr[1]].english;
-      choices[2] = this.selectedHiragana[arr[2]].english;
-      choices[3] = this.selectedHiragana[arr[3]].english;
+      choices[0] = this.selectedRows[arr[0]].english;
+      choices[1] = this.selectedRows[arr[1]].english;
+      choices[2] = this.selectedRows[arr[2]].english;
+      choices[3] = this.selectedRows[arr[3]].english;
     }
     return choices;
   }
 
   public addSelectedFields() {
-    this.selectedHiragana.splice(0);
-    this.hiraganaSections.forEach((section)=> {
-      if (section.isEnabled) {
-        for(let i = section.Start; i < section.End + 1; i++) {
-          this.selectedHiragana.push(this.hiragana[i]);
+    this.selectedRows.splice(0);
+    this.characterRows.forEach((section)=> {
+      if (this.isHiraganaMode) {
+        if (section.isEnabled) {
+          for(let i = section.Start; i < section.End + 1; i++) {
+            this.selectedRows.push(this.hiragana[i]);
+          }
+        }
+      } else {
+        if (section.isEnabled) {
+          for(let i = section.Start; i < section.End + 1; i++) {
+            this.selectedRows.push(this.katakana[i]);
+          }
         }
       }
     })
   }
 
+  public switchKanaMode() {
+    this.isHiraganaMode = !this.isHiraganaMode;
+  }
+
   public startGame() {
     this.addSelectedFields();
-    if (this.selectedHiragana.length !== 0) {
+    if (this.selectedRows.length !== 0) {
       this.progress = 0;
       this.isInGame = true;
       this.setUpMultipleChoiceGame()
@@ -224,13 +321,13 @@ export class LearnHiraganaComponent implements OnInit {
 
   public setUpMultipleChoiceGame() {
     this.isMultiChoiceGame = true;
-    this.gameSelection = this.getNewChoice(this.selectedHiragana.length);
-    this.multipleChoices = this.getChoicesForMultipleChoice(this.selectedHiragana.length, this.gameSelection);
+    this.gameSelection = this.getNewChoice(this.selectedRows.length);
+    this.multipleChoices = this.getChoicesForMultipleChoice(this.selectedRows.length, this.gameSelection);
   }
 
   public chooseAnswer(choice: string) {
     if (this.usingJapaneseText) {
-      if (choice === this.selectedHiragana[this.gameSelection].english) {
+      if (choice === this.selectedRows[this.gameSelection].english) {
         this.increaseProgress();
         this.setUpMultipleChoiceGame();
       } else {
@@ -238,7 +335,7 @@ export class LearnHiraganaComponent implements OnInit {
         this.setUpMultipleChoiceGame();
       }
     } else {
-      if (choice === this.selectedHiragana[this.gameSelection].japanese) {
+      if (choice === this.selectedRows[this.gameSelection].japanese) {
         this.increaseProgress();
         this.setUpMultipleChoiceGame();
       } else {
@@ -265,19 +362,25 @@ export class LearnHiraganaComponent implements OnInit {
     this.usingJapaneseText = true;
     this.Input = "";
     if (this.multiGuessMode) {
-      this.gameSelections = this.getThreeRandomIntegers(this.selectedHiragana.length);
+      this.gameSelections = this.getThreeRandomIntegers(this.selectedRows.length);
     } else {
-      this.gameSelection = this.getNewChoice(this.selectedHiragana.length);
+      this.gameSelection = this.getNewChoice(this.selectedRows.length);
     }
   }
 
   public toggleAll() {
-    if(this.enableButtonText === "Enable All") {
-      this.hiraganaSections.forEach((section)=> {
+    let hasDisabled = false;
+    this.characterRows.forEach((section)=> {
+      if (!section.isEnabled) {
+        hasDisabled = true;
+      }
+    })
+    if(hasDisabled) {
+      this.characterRows.forEach((section)=> {
         section.isEnabled = true;
       })
     } else {
-      this.hiraganaSections.forEach((section)=> {
+      this.characterRows.forEach((section)=> {
         section.isEnabled = false;
       })
     }
@@ -299,9 +402,9 @@ export class LearnHiraganaComponent implements OnInit {
 
   checkAnswer() {
     if (this.multiGuessMode) {
-      if (this.Input === (this.selectedHiragana[this.gameSelections[0]].english +
-                          this.selectedHiragana[this.gameSelections[1]].english +
-                          this.selectedHiragana[this.gameSelections[2]].english)) {
+      if (this.Input === (this.selectedRows[this.gameSelections[0]].english +
+                          this.selectedRows[this.gameSelections[1]].english +
+                          this.selectedRows[this.gameSelections[2]].english)) {
         this.increaseProgress();
         this.setupTypeGame();
       } else {
@@ -309,7 +412,7 @@ export class LearnHiraganaComponent implements OnInit {
         this.setupTypeGame();
       }
     } else {
-      if (this.Input === this.selectedHiragana[this.gameSelection].english) {
+      if (this.Input === this.selectedRows[this.gameSelection].english) {
         this.increaseProgress();
         this.setupTypeGame();
       } else {

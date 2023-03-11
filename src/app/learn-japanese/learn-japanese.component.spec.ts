@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LearnHiraganaComponent } from './learn-hiragana.component';
+import { LearnJapaneseComponent } from './learn-japanese.component';
 import {NavbarComponent} from "../navbar/navbar.component";
 import {RouterModule} from "@angular/router";
-import {MatSliderModule} from "@angular/material/slider";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatInputModule} from "@angular/material/input";
@@ -12,17 +11,17 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 describe('LearnHiraganaComponent', () => {
-  let component: LearnHiraganaComponent;
-  let fixture: ComponentFixture<LearnHiraganaComponent>;
+  let component: LearnJapaneseComponent;
+  let fixture: ComponentFixture<LearnJapaneseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LearnHiraganaComponent, NavbarComponent ],
+      declarations: [ LearnJapaneseComponent, NavbarComponent ],
       imports: [RouterModule, NgbModule, MatProgressBarModule, MatInputModule, FormsModule, BrowserAnimationsModule, MatSlideToggleModule]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LearnHiraganaComponent);
+    fixture = TestBed.createComponent(LearnJapaneseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -43,11 +42,11 @@ describe('LearnHiraganaComponent', () => {
   });
   describe("getChoicesForMultipleChoice", () => {
     it("should Contain Answer", () => {
-      component.hiraganaSections[0].isEnabled = true;
+      component.characterRows[0].isEnabled = true;
       component.addSelectedFields();
-      const arr = component.getChoicesForMultipleChoice(component.selectedHiragana.length, 0);
+      const arr = component.getChoicesForMultipleChoice(component.selectedRows.length, 0);
       expect(new Set(arr).size).toEqual(arr.length);
-      const containsAnswer = arr.some((arr) => arr === component.selectedHiragana[0].japanese)
+      const containsAnswer = arr.some((arr) => arr === component.selectedRows[0].japanese)
       expect(containsAnswer).toBeTruthy();
     });
   });

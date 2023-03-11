@@ -15,7 +15,7 @@ import {ModalButtonComponent} from "./modal-button/modal-button.component";
 import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
 import { ImageCardComponent } from './image-card/image-card.component';
 import { ChooseyourdateComponent } from './chooseyourdate/chooseyourdate.component';
-import { LearnHiraganaComponent } from './learn-hiragana/learn-hiragana.component';
+import { LearnJapaneseComponent } from './learn-japanese/learn-japanese.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
@@ -27,7 +27,7 @@ const routes: Routes =
     {path: '', component: HomeComponent},
     {path: 'about',component: AboutComponent},
     {path: 'date', component: ChooseyourdateComponent},
-    {path: 'Hiragana', component: LearnHiraganaComponent},
+    {path: 'learn-japanese', component: LearnJapaneseComponent},
     {path: '**', component: NotFoundComponent} // this has to be last
   ];
 
@@ -45,7 +45,7 @@ const routes: Routes =
     AccordionPanelComponent,
     ImageCardComponent,
     ChooseyourdateComponent,
-    LearnHiraganaComponent,
+    LearnJapaneseComponent,
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),

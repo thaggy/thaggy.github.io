@@ -1,11 +1,13 @@
 <div *ngIf="!isInGame">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <h3>Hiragana</h3>
+  <div class="row justify-content-md-center" style="margin-top: 20px">
+    <div class="col col-sm-1">
+      <h3 >{{headerText}}</h3>
+    </div>
+    <div class="col col-sm-1">
     </div>
   </div>
   <ng-container>
-    <ng-template ngFor let-item [ngForOf]="hiraganaSections">
+    <ng-template ngFor let-item [ngForOf]="characterRows">
       <div class="row justify-content-md-center">
         <div class="col col-lg-2">
           <mat-slide-toggle [(ngModel)]="item.isEnabled" name="{{item.Family}}-checkbox"> </mat-slide-toggle> {{item.Family}}
@@ -14,9 +16,10 @@
     </ng-template>
   </ng-container>
   <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <button class="btn btn-outline-light" (click)="toggleAll()">{{enableButtonText}}</button>
-      <button style="margin-left: 10px" class="btn btn-outline-light" (click)="startGame()">Start Game</button>
+    <div class="col col-lg-3">
+      <button class="btn btn-outline-light" (click)="toggleAll()">Toggle All</button>
+      <button class="btn btn-outline-light" style="margin-left: 5px" (click)="switchKanaMode()">Toggle Kana</button>
+      <button style="margin-left: 5px" class="btn btn-outline-light" (click)="startGame()">Start Game</button>
     </div>
   </div>
 
@@ -51,7 +54,7 @@
             </button>
           </div>
           <div class="col-md-6" style="padding: 5px">
-            <button type="button" class="btn btn-outline-light largeFont buttonChoice"(click)="chooseAnswer(multipleChoices[3])">
+            <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[3])">
               {{multipleChoices[3]}}
             </button>
           </div>
@@ -70,7 +73,7 @@
             <mat-label style="color: rgba(255,255,255,.66)">Input Answer</mat-label>
             <input matInput type="text" [(ngModel)]="Input" name="Input">
           </mat-form-field>
-          <button style="margin-left: 10px" type="submit" (click)="checkAnswer()" (keydown.enter)="checkAnswer()" class="btn btn-outline-light" mat-raised-button>Submit</button>
+          <button style="margin-left: 10px" type="submit" (click)="checkAnswer()" (keydown.enter)="checkAnswer()" class="btn btn-outline-light">Submit</button>
         </form>
       </div>
     </div>
