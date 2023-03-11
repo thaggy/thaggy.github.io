@@ -402,7 +402,7 @@ export class LearnJapaneseComponent implements OnInit {
 
   checkAnswer() {
     if (this.multiGuessMode) {
-      if (this.Input === (this.selectedRows[this.gameSelections[0]].english +
+      if (this.Input.toLowerCase() === (this.selectedRows[this.gameSelections[0]].english +
                           this.selectedRows[this.gameSelections[1]].english +
                           this.selectedRows[this.gameSelections[2]].english)) {
         this.increaseProgress();
@@ -412,7 +412,7 @@ export class LearnJapaneseComponent implements OnInit {
         this.setupTypeGame();
       }
     } else {
-      if (this.Input === this.selectedRows[this.gameSelection].english) {
+      if (this.Input.toLowerCase() === this.selectedRows[this.gameSelection].english) {
         this.increaseProgress();
         this.setupTypeGame();
       } else {
