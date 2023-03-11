@@ -284,7 +284,7 @@ export class LearnHiraganaComponent implements OnInit {
   }
 
   public increaseProgress() {
-    this.progress += 50;
+    this.progress += 5;
   }
   public decreaseProgress() {
     if (this.progress <= 0) {
