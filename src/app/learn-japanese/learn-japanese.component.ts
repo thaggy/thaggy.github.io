@@ -424,11 +424,15 @@ export class LearnJapaneseComponent implements OnInit {
         this.setupTypeGame();
       } else {
         // Finished with all games
-        this.isInGame = false;
-        this.multiGuessMode = false;
-        this.gameSelection = -1;
-        this.isMultiChoiceGame = true;
+        this.exitGame();
       }
     }
+  }
+
+  exitGame() {
+    this.isInGame = false;
+    this.multiGuessMode = false;
+    this.gameSelection = -1;
+    this.isMultiChoiceGame = true;
   }
 }
