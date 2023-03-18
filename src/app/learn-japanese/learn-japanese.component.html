@@ -34,28 +34,19 @@
     <div class="buttonBox">
       <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="row">
-          <div class="col-md-6" style="padding: 5px">
+          <div class="col-md-4" style="padding: 5px">
             <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[0])">
               {{multipleChoices[0]}}
             </button>
           </div>
-          <div class="col-md-6" style="padding: 5px">
+          <div class="col-md-4" style="padding: 5px">
             <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[1])">
               {{multipleChoices[1]}}
             </button>
           </div>
-        </div>
-      </div>
-      <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="row">
-          <div class="col-md-6" style="padding: 5px">
+          <div class="col-md-4" style="padding: 5px">
             <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[2])">
               {{multipleChoices[2]}}
-            </button>
-          </div>
-          <div class="col-md-6" style="padding: 5px">
-            <button type="button" class="btn btn-outline-light largeFont buttonChoice" (click)="chooseAnswer(multipleChoices[3])">
-              {{multipleChoices[3]}}
             </button>
           </div>
         </div>
@@ -71,7 +62,7 @@
         <form>
           <mat-form-field appearance="legacy">
             <mat-label style="color: rgba(255,255,255,.66)">Input Answer</mat-label>
-            <input matInput type="text" [(ngModel)]="Input" name="Input">
+            <input matInput type="text" id="textInput" [(ngModel)]="Input" name="Input">
           </mat-form-field>
           <button style="margin-left: 10px" type="submit" (click)="checkAnswer()" (keydown.enter)="checkAnswer()" class="btn btn-outline-light">Submit</button>
         </form>

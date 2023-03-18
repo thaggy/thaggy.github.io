@@ -200,8 +200,7 @@ export class LearnJapaneseComponent implements OnInit {
     {Family: "Ma Row", Start: 30, End: 34, isEnabled: false},
     {Family: "Ya Row", Start: 35, End: 37, isEnabled: false},
     {Family: "Ra Row", Start: 38, End: 42, isEnabled: false},
-    {Family: "Wa Row", Start: 43, End: 44, isEnabled: false},
-    {Family: "N", Start: 45, End: 45, isEnabled: false},
+    {Family: "Wa Row + N", Start: 43, End: 45, isEnabled: false},
     {Family: "Ga Row", Start: 46, End: 50, isEnabled: false},
     {Family: "Za Row", Start: 51, End: 55, isEnabled: false},
     {Family: "Da Row", Start: 56, End: 60, isEnabled: false},
@@ -261,28 +260,25 @@ export class LearnJapaneseComponent implements OnInit {
   }
 
   public getChoicesForMultipleChoice(maxValue: number, answer: number): string[] {
-    let arr = [-1,-1,-1, -1];
-    let choices = ["","","",""]
+    let arr = [-1,-1,-1];
+    let choices = ["","",""]
     while (new Set(arr).size !== arr.length) {
       arr[0] = this.getRandomInteger(maxValue);
       arr[1] = this.getRandomInteger(maxValue);
       arr[2] = this.getRandomInteger(maxValue);
-      arr[3] = this.getRandomInteger(maxValue);
     }
     if (!arr.some(element => element === answer)) {
-      const answerSlot = this.getRandomInteger(4);
+      const answerSlot = this.getRandomInteger(choices.length);
       arr[answerSlot] = answer;
     }
     if (!this.usingJapaneseText) {
       choices[0] = this.selectedRows[arr[0]].japanese;
       choices[1] = this.selectedRows[arr[1]].japanese;
       choices[2] = this.selectedRows[arr[2]].japanese;
-      choices[3] = this.selectedRows[arr[3]].japanese;
     } else {
       choices[0] = this.selectedRows[arr[0]].english;
       choices[1] = this.selectedRows[arr[1]].english;
       choices[2] = this.selectedRows[arr[2]].english;
-      choices[3] = this.selectedRows[arr[3]].english;
     }
     return choices;
   }
@@ -366,6 +362,7 @@ export class LearnJapaneseComponent implements OnInit {
     } else {
       this.gameSelection = this.getNewChoice(this.selectedRows.length);
     }
+    window.document.getElementById("textInput").focus();
   }
 
   public toggleAll() {
