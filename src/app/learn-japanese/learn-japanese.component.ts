@@ -311,6 +311,7 @@ export class LearnJapaneseComponent implements OnInit {
     if (this.selectedRows.length !== 0) {
       this.progress = 0;
       this.isInGame = true;
+      this.usingJapaneseText = true;
       this.setUpMultipleChoiceGame()
     }
   }
